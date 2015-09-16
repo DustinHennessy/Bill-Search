@@ -9,10 +9,25 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    let apiKey = "bfdd117155524966bd4b59a223d484ae"
+    @IBOutlet var searchTextField :UITextField!
+    @IBOutlet var searchButton :UIButton!
+    @IBOutlet var clearButton :UIButton!
 
+    @IBAction func clearButtonPressed (sender: UIButton) {
+        searchTextField.text = ""
+    }
+    
+    @IBAction func searchButtonPressed(sender: UIButton) {
+        if searchTextField.text != "" {
+        SearchManager.sharedInstance.getDataFromAPIWithSearchQuery(searchTextField.text)
+        } 
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
     }
 
     override func didReceiveMemoryWarning() {
