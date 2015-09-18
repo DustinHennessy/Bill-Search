@@ -74,7 +74,6 @@
                                 </variation>
                                 <connections>
                                     <action selector="searchButtonPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="dEL-dO-zOS"/>
-                                    <segue destination="Jl0-Pz-kpB" kind="show" identifier="searchSegue" id="gL4-Qm-URq"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -108,6 +107,7 @@
                         <outlet property="clearButton" destination="02c-5T-Y2u" id="pgm-zh-2oT"/>
                         <outlet property="searchButton" destination="uzQ-xZ-O1u" id="DQq-Go-V7Q"/>
                         <outlet property="searchTextField" destination="dmd-Ww-Wm4" id="S5I-GR-6iN"/>
+                        <segue destination="Jl0-Pz-kpB" kind="show" identifier="toSearchResults" id="AR6-NN-UbA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
@@ -136,7 +136,7 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fbo-3P-K2L">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fbo-3P-K2L">
                                 <rect key="frame" x="144" y="79" width="440" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="a8s-ld-OmX"/>
@@ -155,7 +155,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bill Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k6r-l1-flq">
-                                                    <rect key="frame" x="8" y="9" width="584" height="21"/>
+                                                    <rect key="frame" x="8" y="2" width="584" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="NzA-rK-1ct"/>
                                                     </constraints>
@@ -163,17 +163,8 @@
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Congress URL" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Yr-iT-Bzc">
-                                                    <rect key="frame" x="8" y="130" width="584" height="21"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="21" id="9qy-W1-hYO"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="15"/>
-                                                    <color key="textColor" red="0.16849327780000001" green="0.19947146120000001" blue="0.60181817859999998" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bill Id" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f1t-7Z-SwH">
-                                                    <rect key="frame" x="81" y="104" width="511" height="21"/>
+                                                    <rect key="frame" x="81" y="97" width="511" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="tqq-0W-Is9"/>
                                                     </constraints>
@@ -182,7 +173,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bill Id:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AHI-0z-aod">
-                                                    <rect key="frame" x="8" y="104" width="65" height="21"/>
+                                                    <rect key="frame" x="8" y="97" width="65" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="3fq-3Q-w0s"/>
                                                         <constraint firstAttribute="width" constant="65" id="70L-Xx-Cg7"/>
@@ -193,7 +184,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="248" verticalHuggingPriority="248" text="Label" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QDD-8h-8Q8">
-                                                    <rect key="frame" x="8" y="32" width="584" height="70"/>
+                                                    <rect key="frame" x="8" y="25" width="584" height="70"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="70" id="SXr-iV-8hf"/>
                                                     </constraints>
@@ -201,24 +192,35 @@
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h6T-mz-fyD">
+                                                    <rect key="frame" x="8" y="121" width="584" height="30"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="30" id="kgY-OH-byU"/>
+                                                    </constraints>
+                                                    <state key="normal" title="Congress.gov">
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="urlButtonPressed:" destination="5pM-se-sia" eventType="touchUpInside" id="j4t-uw-RyO"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="1Yr-iT-Bzc" firstAttribute="trailing" secondItem="EnT-dE-Dsb" secondAttribute="trailingMargin" id="C3C-WM-Ul3"/>
-                                                <constraint firstItem="1Yr-iT-Bzc" firstAttribute="bottom" secondItem="EnT-dE-Dsb" secondAttribute="bottomMargin" id="DBL-16-XqZ"/>
+                                                <constraint firstItem="h6T-mz-fyD" firstAttribute="top" secondItem="f1t-7Z-SwH" secondAttribute="bottom" constant="3" id="0mJ-eL-IZ0"/>
                                                 <constraint firstItem="QDD-8h-8Q8" firstAttribute="top" secondItem="k6r-l1-flq" secondAttribute="bottom" constant="2" id="Fif-dO-AZ1"/>
                                                 <constraint firstItem="AHI-0z-aod" firstAttribute="leading" secondItem="EnT-dE-Dsb" secondAttribute="leadingMargin" id="Gk1-ES-keA"/>
+                                                <constraint firstItem="h6T-mz-fyD" firstAttribute="trailing" secondItem="EnT-dE-Dsb" secondAttribute="trailingMargin" id="LPn-ng-xrZ"/>
                                                 <constraint firstItem="k6r-l1-flq" firstAttribute="leading" secondItem="EnT-dE-Dsb" secondAttribute="leadingMargin" id="Mj0-8i-K1j"/>
+                                                <constraint firstItem="h6T-mz-fyD" firstAttribute="leading" secondItem="EnT-dE-Dsb" secondAttribute="leadingMargin" id="RiB-aY-tHK"/>
                                                 <constraint firstItem="AHI-0z-aod" firstAttribute="top" secondItem="QDD-8h-8Q8" secondAttribute="bottom" constant="2" id="ScD-Ho-Kxb"/>
-                                                <constraint firstItem="1Yr-iT-Bzc" firstAttribute="leading" secondItem="EnT-dE-Dsb" secondAttribute="leadingMargin" id="TJw-3v-GRY"/>
                                                 <constraint firstItem="f1t-7Z-SwH" firstAttribute="width" secondItem="AHI-0z-aod" secondAttribute="width" id="WnY-zz-AMw"/>
                                                 <constraint firstItem="f1t-7Z-SwH" firstAttribute="leading" secondItem="AHI-0z-aod" secondAttribute="trailing" constant="8" id="ate-R8-KV3"/>
-                                                <constraint firstItem="1Yr-iT-Bzc" firstAttribute="top" secondItem="f1t-7Z-SwH" secondAttribute="bottom" constant="5" id="bUf-w8-CgI"/>
                                                 <constraint firstItem="f1t-7Z-SwH" firstAttribute="trailing" secondItem="EnT-dE-Dsb" secondAttribute="trailingMargin" id="bXI-Wc-xyR"/>
                                                 <constraint firstItem="f1t-7Z-SwH" firstAttribute="top" secondItem="QDD-8h-8Q8" secondAttribute="bottom" constant="2" id="gqp-jn-h0W"/>
                                                 <constraint firstItem="QDD-8h-8Q8" firstAttribute="leading" secondItem="EnT-dE-Dsb" secondAttribute="leadingMargin" id="h2b-2I-Erl"/>
                                                 <constraint firstItem="QDD-8h-8Q8" firstAttribute="trailing" secondItem="EnT-dE-Dsb" secondAttribute="trailingMargin" id="h8s-R6-wIt"/>
                                                 <constraint firstItem="k6r-l1-flq" firstAttribute="trailing" secondItem="EnT-dE-Dsb" secondAttribute="trailingMargin" id="lct-aa-y3y"/>
-                                                <constraint firstItem="1Yr-iT-Bzc" firstAttribute="top" secondItem="AHI-0z-aod" secondAttribute="bottom" constant="5" id="ySL-DF-IFN"/>
+                                                <constraint firstItem="h6T-mz-fyD" firstAttribute="bottom" secondItem="EnT-dE-Dsb" secondAttribute="bottomMargin" id="m72-WS-yHV"/>
                                             </constraints>
                                             <variation key="default">
                                                 <mask key="constraints">
@@ -229,7 +231,6 @@
                                         <connections>
                                             <outlet property="billIDLable" destination="f1t-7Z-SwH" id="12Z-h4-iFp"/>
                                             <outlet property="billTitleLabel" destination="k6r-l1-flq" id="thO-BS-03G"/>
-                                            <outlet property="congressURLLabel" destination="1Yr-iT-Bzc" id="nKk-fv-4CA"/>
                                             <outlet property="officialTitleLabel" destination="QDD-8h-8Q8" id="Hbp-B8-AdQ"/>
                                         </connections>
                                     </tableViewCell>
@@ -310,7 +311,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="w7I-tZ-qnh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1839" y="1694"/>
+            <point key="canvasLocation" x="1839" y="1748"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Cf7-BB-Dh7">

@@ -14,5 +14,6 @@ class Bill: NSObject {
     var billOfficialTitle :String!
     var billID :String!
     var congressURL :String!
+    var billDate :String!
     
 }

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, congressLinkDelegate {
 
     @IBOutlet var searchResultsTableView :UITableView!
     var searchResultsArray = [Bill]()
@@ -18,7 +18,11 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
     let apiKey = "bfdd117155524966bd4b59a223d484ae"
     var billURL :String!
 
-    
+    func linkClicked(url: String) {
+        println("delegate func")
+        billURL = url
+        performSegueWithIdentifier("toWebView", sender: self)
+    }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return billManager.billArray.count
@@ -29,26 +33,30 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
         let currentBill = billManager.billArray[indexPath.row]
         cell.billTitleLabel.text = currentBill.billName
         cell.billIDLable.text = currentBill.billID
-        cell.congressURLLabel.text = currentBill.congressURL
         cell.officialTitleLabel.text = currentBill.billOfficialTitle
+        cell.billURL = currentBill.congressURL
+        cell.linkDelgate = self
+        
         return cell
         
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let currentBill = billManager.billArray[indexPath.row]
-        billURL = currentBill.congressURL
-        performSegueWithIdentifier("toWebView", sender: self)
-    }
+//    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+//        let currentBill = billManager.billArray[indexPath.row]
+//        billURL = currentBill.congressURL
+//    }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         let destController = segue.destinationViewController as! BillDetailViewController
         destController.webviewURL = billURL
     }
+    
     func searchDoneNotification() {
+        billManager.billArray.sort { $1.billDate < $0.billDate }
         let countStringValue = "\(SearchManager.sharedInstance.searchCount)"
         countLabel.text = countStringValue
         searchResultsTableView.reloadData()
+        println("Search done!")
         
 
     }
@@ -59,6 +67,7 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
 }
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         let notificationCenter = NSNotificationCenter.defaultCenter().addObserver(self, selector: "searchDoneNotification", name: "gotDataNotification", object: nil)
         searchResultsTableView.reloadData()
     }

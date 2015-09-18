@@ -22,6 +22,7 @@ class ViewController: UIViewController {
     @IBAction func searchButtonPressed(sender: UIButton) {
         if searchTextField.text != "" {
         SearchManager.sharedInstance.getDataFromAPIWithSearchQuery(searchTextField.text)
+        performSegueWithIdentifier("toSearchResults", sender: self)
         } 
     }
     

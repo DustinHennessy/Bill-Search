@@ -46,6 +46,7 @@ class SearchManager: NSObject {
                     bill.congressURL = congressDict.objectForKey("congress") as! String
                     bill.billOfficialTitle = results.objectForKey("official_title") as! String
                     bill.billID = results.objectForKey("bill_id") as! String
+                    bill.billDate = results.objectForKey("introduced_on") as! String
                     if !(results.objectForKey("popular_title") is NSNull) {
                         bill.billName = results.objectForKey("popular_title") as! String
                     } else {
